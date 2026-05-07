@@ -1,5 +1,5 @@
 # DeepLabCut Tools for XROMM
-Integrate [XMALab](https://bitbucket.org/xromm/xmalab) and [DeepLabCut](https://github.com/AlexEMG/DeepLabCut) for high-throughput XROMM. Pipeline created by J.D. Laurence-Chasen.
+Integrate [XMALab](https://github.com/XROMMPackages/xmalab) and [DeepLabCut](https://github.com/AlexEMG/DeepLabCut) for high-throughput XROMM. Pipeline created by J.D. Laurence-Chasen.
 
 See (and cite) our [methods paper](https://jeb.biologists.org/content/early/2020/07/13/jeb.226720) in the Journal of Experimental Biology.
 
@@ -32,7 +32,7 @@ uv lock
 uv sync --no-group dlc
 ```
 
-For DeepLabCut-dependent commands:
+For DeepLabCut-dependent commands, prediction paths, or the local workflow UI:
 
 ```bash
 uv sync --group dlc
@@ -58,8 +58,25 @@ The packaged CLI includes commands for:
 - corrected-frame augmentation
 - temporal optimization review reports
 - stereo triangulation review reports
+- local workflow service startup
 
-The command-line workflow is intended for advanced users. Most users should start with the notebooks.
+The command-line workflow is intended for advanced users at this stage. Most users should start with the notebooks.
+
+### Local workflow UI
+Run the local workflow service and open the browser UI at `http://127.0.0.1:8765/`.
+
+```bash
+uv run python -m xrommtools serve-api --host 127.0.0.1 --port 8765
+```
+
+The local UI supports:
+- upload / ingest
+- guided workflow sequencing
+- review-report loading
+- review-to-retrain handoff
+- one-click export summary creation
+
+This local UI is a work in progress—a stepping stone toward an online service—but it should work well, depending on available compute resources.
 
 ## Data layout expectations
 Each trial folder should contain:

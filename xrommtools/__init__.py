@@ -22,6 +22,21 @@ from .models import (
 )
 from .optimization import optimize_dlc_predictions
 from .prediction import analyze_xromm_videos
+from .registry import ModelPromotionRecord, ModelRegistry, ModelVersionRecord
+from .service import (
+    AutoRetrainDecisionResult,
+    HpcStubSchedulerAdapter,
+    LocalApiExecutor,
+    LocalJobStore,
+    LocalPipelineOrchestrator,
+    LocalQueueSchedulerAdapter,
+    ModelVersionComparisonResult,
+    OperationExecutor,
+    PipelineJobRecord,
+    RetrainTriggerResult,
+    SchedulerAdapter,
+)
+from .server import OrchestratorHttpServer, create_api_server, serve_api
 from .triangulation import triangulate_dlc_predictions
 
 __all__ = [
@@ -44,4 +59,21 @@ __all__ = [
     "TemporalOptimizationConfig",
     "optimize_dlc_predictions",
     "triangulate_dlc_predictions",
+    "ModelVersionRecord",
+    "ModelPromotionRecord",
+    "ModelRegistry",
+    "PipelineJobRecord",
+    "RetrainTriggerResult",
+    "ModelVersionComparisonResult",
+    "AutoRetrainDecisionResult",
+    "LocalJobStore",
+    "LocalPipelineOrchestrator",
+    "OperationExecutor",
+    "LocalApiExecutor",
+    "SchedulerAdapter",
+    "LocalQueueSchedulerAdapter",
+    "HpcStubSchedulerAdapter",
+    "OrchestratorHttpServer",
+    "create_api_server",
+    "serve_api",
 ]
