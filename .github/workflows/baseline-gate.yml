@@ -1,0 +1,41 @@
+name: baseline-gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Create baseline environment
+        run: |
+          uv venv .venv
+          uv pip install --python .venv/bin/python -r requirements-baseline.txt
+
+      - name: Run baseline CI scenarios
+        run: |
+          uv run --python .venv/bin/python scripts/baseline_harness.py \
+            --scenario ci \
+            --output-dir baseline_artifacts/ci \
+            --fail-on-skip
+
+      - name: Verify against golden baseline manifest
+        run: |
+          uv run --python .venv/bin/python scripts/baseline_manifest.py verify \
+            --summary baseline_artifacts/ci/summary.json \
+            --manifest baseline_artifacts/golden/v1_ci_manifest.json

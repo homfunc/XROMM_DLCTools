@@ -1,0 +1,33 @@
+{
+  "manifest_version": "v1",
+  "generated_at_utc": "2026-03-29T09:03:58.924188+00:00",
+  "requested_scenario": "ci",
+  "selected_scenarios": [
+    "xrommtools_dlc_to_xma_contract",
+    "xrommtools_xma_to_dlc_fixture"
+  ],
+  "statuses": {
+    "xrommtools_dlc_to_xma_contract": "passed",
+    "xrommtools_xma_to_dlc_fixture": "passed"
+  },
+  "checksums": {
+    "xrommtools_dlc_to_xma_contract.csv.sha256": "72c08995030b74f4940750d2e720515cfd12935fc03ae2607e002f60a8c9d18b",
+    "xrommtools_xma_to_dlc_fixture.collected_data_csv.sha256": "9c26d4e5f0edfe25ed4e76ab355bed200110a33946fd87a79f95aae808ba957d"
+  },
+  "invariants": {
+    "xrommtools_dlc_to_xma_contract.rows": 3,
+    "xrommtools_dlc_to_xma_contract.columns": [
+      "marker001_cam1_X",
+      "marker001_cam1_Y",
+      "marker001_cam2_X",
+      "marker001_cam2_Y",
+      "marker002_cam1_X",
+      "marker002_cam1_Y",
+      "marker002_cam2_X",
+      "marker002_cam2_Y"
+    ],
+    "xrommtools_xma_to_dlc_fixture.images_extracted": 8,
+    "xrommtools_xma_to_dlc_fixture.label_rows": 8,
+    "xrommtools_xma_to_dlc_fixture.label_columns": 20
+  }
+}

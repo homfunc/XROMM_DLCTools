@@ -1,0 +1,6 @@
+.venv/
+baseline_artifacts/*
+!baseline_artifacts/golden/
+!baseline_artifacts/golden/*.json
+__pycache__/
+AGENTS.md
